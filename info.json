@@ -1,0 +1,11 @@
+{
+    "name": "AdequateAlternatives",
+    "version": "1.0.0",
+    "title": "Adequate Alternatives",
+    "author": "planetfall",
+    "homepage": "",
+    "source": "",
+    "description": "Adds Satisfactory-style alternative recipes. Fight and explore to unlock hidden technologies and pick the best ones.",
+    "factorio_version": "2.1",
+    "dependencies": ["base >= 2.1", "? space-age", "pf-functions"]
+}
