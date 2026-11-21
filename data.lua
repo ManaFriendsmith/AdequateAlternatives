@@ -1494,7 +1494,7 @@ data:extend({
                 icon_size = 64
             },
             {
-                icon = "__base__/graphics/icons/fast-transport-belt.png",
+                icon = "__base__/graphics/icons/chemical-plant.png",
                 icon_size = 64,
                 scale = 0.25,
                 shift = {8, -8}
@@ -2242,14 +2242,14 @@ data:extend({
         enabled = false,
         allow_as_intermediate = false,
         allow_decomposition = false,
-        energy_required = 0.5,
+        energy_required = mods["IfNickelMk2"] and 0.5 or 1,
         auto_recycle=false,
         ingredients = {
-            { type = "item", name = "transport-belt", amount = 1 },
+            { type = "item", name = "transport-belt", amount = mods["IfNickelMk2"] and 1 or 2 },
             { type = "item", name = "engine-unit", amount = 1 }
         },
         results = {
-            {type="item", name="fast-transport-belt", amount=1}
+            {type="item", name="fast-transport-belt", amount=mods["IfNickelMk2"] and 1 or 2}
         }
     },
     {
@@ -2271,11 +2271,11 @@ data:extend({
         enabled = false,
         allow_as_intermediate = false,
         allow_decomposition = false,
-        energy_required = 0.5,
+        energy_required = 1,
         auto_recycle=false,
         ingredients = {
             { type = "item", name = "underground-belt", amount = 2 },
-            { type = "item", name = "engine-unit", amount = 8 }
+            { type = "item", name = "engine-unit", amount = mods["IfNickelMk2"] and 4 or 8 }
         },
         results = {
             {type="item", name="fast-underground-belt", amount=2}
@@ -2304,7 +2304,7 @@ data:extend({
         auto_recycle=false,
         ingredients = {
             { type = "item", name = "splitter", amount = 1 },
-            { type = "item", name = "engine-unit", amount = 2 },
+            { type = "item", name = "engine-unit", amount = mods["IfNickelMk2"] and 1 or 2 },
             { type = "item", name = "electronic-circuit", amount = 10 }
         },
         results = {
@@ -2348,8 +2348,8 @@ data:extend({
         energy_required = 0.5,
         auto_recycle=false,
         ingredients = {
-            { type = "item", name = "transport-belt", amount = 1 },
-            { type = "item", name = "electric-engine-unit", amount = 2 }
+            { type = "item", name = "fast-transport-belt", amount = 1 },
+            { type = "item", name = "electric-engine-unit", amount = mods["IfNickelMk2"] and 1 or 2 }
         },
         results = {
             {type="item", name="express-transport-belt", amount=1}
@@ -2378,7 +2378,7 @@ data:extend({
         auto_recycle=false,
         ingredients = {
             { type = "item", name = "fast-underground-belt", amount = 2 },
-            { type = "item", name = "electric-engine-unit", amount = 16 }
+            { type = "item", name = "electric-engine-unit", amount = mods["IfNickelMk2"] and 8 or 16 }
         },
         results = {
             {type="item", name="express-underground-belt", amount=2}
@@ -2403,15 +2403,15 @@ data:extend({
         enabled = false,
         allow_as_intermediate = false,
         allow_decomposition = false,
-        energy_required = 0.5,
+        energy_required = mods["IfNickelMk2"] and 2 or 1,
         auto_recycle=false,
         ingredients = {
-            { type = "item", name = "splitter", amount = 1 },
+            { type = "item", name = "fast-splitter", amount = mods["IfNickelMk2"] and 2 or 1 },
             { type = "item", name = "electric-engine-unit", amount = 1 },
-            { type = "item", name = "advanced-circuit", amount = 10 }
+            { type = "item", name = "advanced-circuit", amount = mods["IfNickelMk2"] and 20 or 10 }
         },
         results = {
-            {type="item", name="express-splitter", amount=1}
+            {type="item", name="express-splitter", amount=mods["IfNickelMk2"] and 2 or 1}
         }
     },
     {
@@ -3286,7 +3286,7 @@ if mods["space-age"] then
         {
             type = "technology",
             name = "yumako-battery",
-            icon = "__base__/graphics/technology/engine.png",
+            icon = "__base__/graphics/technology/battery.png",
             icon_size = 256,
             prerequisites = {"planet-discovery-gleba"},
             unit = {time = 1, count = 1, ingredients = {{"dummy-tech-point", 1}}},
