@@ -127,7 +127,7 @@ data:extend({
         upgrade = true,
         max_level = "infinite",
         prerequisites = {"bio-anomaly-studies"},
-        unit = { time = 1, count_formula = "1 + ((L-1) * 3)", ingredients = {{"biter-nest-data", 1}} },
+        unit = { time = 1, count_formula = "1 + ((L-1) * 2)", ingredients = {{"biter-nest-data", 1}} },
         ignore_tech_cost_multiplier = true,
         effects = {
             {type = "nothing", icon_size=64, icon="__AdequateAlternatives__/graphics/icons/tech-point.png", effect_description={"adequate-alternatives-tech-reward-upgrade-point"}},
