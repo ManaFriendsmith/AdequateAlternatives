@@ -505,29 +505,31 @@ script.on_configuration_changed(function(data)
         end
     end
 
-    for k, v in pairs(game.forces) do
-        local force_data = storage.force_data[v.name]
-        if force_data then
-            for k2, v2 in pairs(prototypes.mod_data["adequate-alternatives-techs"].data) do
-                local tech = v.technologies[k2]
-                if tech then
-                    if not tech.researched then
-                        tech.enabled = false
-                        if force_data.techs_available[k2] then
-                            tech.visible_when_disabled = true
-                        else
-                            tech.visible_when_disabled = false
+    if storage.force_data then
+        for k, v in pairs(game.forces) do
+            local force_data = storage.force_data[v.name]
+            if force_data then
+                for k2, v2 in pairs(prototypes.mod_data["adequate-alternatives-techs"].data) do
+                    local tech = v.technologies[k2]
+                    if tech then
+                        if not tech.researched then
+                            tech.enabled = false
+                            if force_data.techs_available[k2] then
+                                tech.visible_when_disabled = true
+                            else
+                                tech.visible_when_disabled = false
+                            end
                         end
                     end
                 end
             end
         end
-    end
 
-    for k, v in pairs(storage.force_data) do
-        for k2, v2 in pairs(v.techs_available) do
-            if not prototypes.technology[k2] then
-                v.techs_available[k2] = nil
+        for k, v in pairs(storage.force_data) do
+            for k2, v2 in pairs(v.techs_available) do
+                if not prototypes.technology[k2] then
+                    v.techs_available[k2] = nil
+                end
             end
         end
     end
