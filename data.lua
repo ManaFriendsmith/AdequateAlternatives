@@ -18,6 +18,7 @@ data:extend({
         name = "adequate-alternatives-techs",
         data = {
             ["steel-rod"] = {name="steel-rod", weight=10, early=5},
+            ["wooden-rail"] = {name="wooden-rail", weight=5, early=5, gleba=5},
             ["steel-pipe"] = {name="steel-pipe", weight=10, early=5},
             ["raw-concrete"] = {name="raw-concrete", weight=10, early=5},
             ["insulated-wire"] = {name="insulated-wire", weight=10},
@@ -751,6 +752,49 @@ data:extend({
         unit = {time = 1, count = 1, ingredients = {{"dummy-tech-point", 1}}},
         effects = {
             {type = "unlock-recipe", recipe="steel-rod"}
+        },
+        enabled = false
+    },
+
+    {
+        type = "recipe",
+        name = "wooden-rail",
+        categories = { "advanced-crafting" },
+        icons = {
+            {
+                icon = "__base__/graphics/icons/rail.png",
+                icon_size = 64
+            },
+            {
+                icon = "__base__/graphics/icons/wood.png",
+                icon_size = 64,
+                scale = 0.25,
+                shift = {8, -8}
+            }
+        },
+        enabled = false,
+        energy_required = 0.5,
+        allow_as_intermediate = false,
+        allow_decomposition = false,
+        auto_recycle=false,
+        ingredients = {
+            {type="item", name="steel-plate", amount=1},
+            {type="item", name="stone", amount=1},
+            {type="item", name="wood", amount=1}
+        },
+        results = {
+            {type="item", name="rail", amount=2}
+        }
+    },
+    {
+        type = "technology",
+        name = "wooden-rail",
+        icon = "__base__/graphics/technology/railway.png",
+        icon_size = 256,
+        prerequisites = {"railway"},
+        unit = {time = 1, count = 1, ingredients = {{"dummy-tech-point", 1}}},
+        effects = {
+            {type = "unlock-recipe", recipe="wooden-rail"}
         },
         enabled = false
     },
@@ -2818,6 +2862,86 @@ data:extend({
         enabled = false
     }
 })
+
+if mods["elevated-rails"] then
+
+    data.raw["mod-data"]["adequate-alternatives-techs"].data["wooden-bridges"] = {name="wooden-bridges", weight=5, early=5, gleba=5, nauvis=5}
+
+    data:extend({
+        {
+            type = "recipe",
+            name = "wooden-rail-support",
+            categories = { "advanced-crafting" },
+            icons = {
+                {
+                    icon = "__elevated-rails__/graphics/icons/rail-support.png",
+                    icon_size = 64
+                },
+                {
+                    icon = "__base__/graphics/icons/wood.png",
+                    icon_size = 64,
+                    scale = 0.25,
+                    shift = {8, -8}
+                }
+            },
+            enabled = false,
+            energy_required = 0.5,
+            allow_as_intermediate = false,
+            allow_decomposition = false,
+            auto_recycle=false,
+            ingredients = {
+                {type="item", name="steel-plate", amount=10},
+                {type="item", name="wood", amount=mods["BrimStuffMk2"] and 100 or 50}
+            },
+            results = {
+                {type="item", name="rail-support", amount=1}
+            }
+        },
+        {
+            type = "recipe",
+            name = "wooden-rail-ramp",
+            categories = { "advanced-crafting" },
+            icons = {
+                {
+                    icon = "__elevated-rails__/graphics/icons/rail-ramp.png",
+                    icon_size = 64
+                },
+                {
+                    icon = "__base__/graphics/icons/wood.png",
+                    icon_size = 64,
+                    scale = 0.25,
+                    shift = {8, -8}
+                }
+            },
+            enabled = false,
+            energy_required = 0.5,
+            allow_as_intermediate = false,
+            allow_decomposition = false,
+            auto_recycle=false,
+            ingredients = {
+                {type="item", name="steel-plate", amount=10},
+                {type="item", name="rail", amount=8},
+                {type="item", name="wood", amount=mods["BrimStuffMk2"] and 500 or 250}
+            },
+            results = {
+                {type="item", name="rail-ramp", amount=1}
+            }
+        },
+        {
+            type = "technology",
+            name = "wooden-bridges",
+            icon = "__elevated-rails__/graphics/technology/elevated-rail.png",
+            icon_size = 256,
+            prerequisites = {"railway"},
+            unit = {time = 1, count = 1, ingredients = {{"dummy-tech-point", 1}}},
+            effects = {
+                {type = "unlock-recipe", recipe="wooden-rail-support"},
+                {type = "unlock-recipe", recipe="wooden-rail-ramp"}
+            },
+            enabled = false
+        },
+    })
+end
 
 if not mods["space-age"] then
     data.raw["mod-data"]["adequate-alternatives-techs"].data["iron-leaching"] = {name="iron-leaching", weight=3, early=1}
