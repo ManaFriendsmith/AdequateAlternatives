@@ -107,7 +107,7 @@ data:extend({
         icon_size = 256,
         prerequisites = {"automation-2"},
         unit = {
-            time = 1,
+            time = 15,
             count = 50,
             ingredients = {
             {"automation-science-pack", 1},
@@ -698,7 +698,7 @@ else
             icon_size = 256,
             prerequisites = {"bio-anomaly-studies", "military-science-pack", "chemical-science-pack"},
             unit = {
-                time = 1,
+                time = 30,
                 count = 150,
                 ingredients = {
                 {"automation-science-pack", 1},
