@@ -941,7 +941,7 @@ data:extend({
                 shift = {8, -8}
             }
         },
-        categories = { "crafting-with-fluid" },
+        categories = { "crafting" },
         enabled = false,
         allow_as_intermediate = false,
         allow_decomposition = false,
