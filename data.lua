@@ -1036,7 +1036,7 @@ data:extend({
         auto_recycle=false,
         ingredients = {
             { type = "item", name = "copper-plate", amount = 10 },
-            { type = "item", name = "iron-stick", amount = 10 },
+            { type = "item", name = "iron-stick", amount = 20 },
             { type = "item", name = "iron-gear-wheel", amount = 20 },
             { type = "fluid", name = "lubricant", amount = 20 }
         },
