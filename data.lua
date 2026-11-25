@@ -1462,14 +1462,14 @@ data:extend({
         enabled = false,
         allow_as_intermediate = false,
         allow_decomposition = false,
-        energy_required = 50,
+        energy_required = 60,
         auto_recycle=false,
         ingredients = {
             { type = "item", name = "assembling-machine-1", amount = 1 },
             { type = "item", name = "copper-cable", amount = 10 },
         },
         results = {
-            {type="item", name="automation-science-pack", amount=10}
+            {type="item", name="automation-science-pack", amount=12}
         },
         allow_productivity = true
     },
@@ -2680,7 +2680,7 @@ data:extend({
         name = "mechanical-module",
         icon = "__base__/graphics/technology/productivity-module-1.png",
         icon_size = 256,
-        prerequisites = {"electronics"},
+        prerequisites = {"robotics"},
         unit = {time = 1, count = 1, ingredients = {{"dummy-tech-point", 1}}},
         effects = {
             {type = "unlock-recipe", recipe="mechanical-module"}
