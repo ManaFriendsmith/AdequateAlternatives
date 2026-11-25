@@ -29,6 +29,8 @@ While the intention is to provide almost exclusively alternate recipes, each alt
 - [BrimStuff](https://github.com/ManaFriendsmith/BrimStuffMk2) - Reworks sulfur and chemistry. Rubber, explosives, waste processing. Heavily affects all planets + space platforms.
 - [LasingAround](https://github.com/ManaFriendsmith/LasingAroundMk2) - Adds helium. Lasers and advanced crafting machines. Heavily affects Nauvis, Fulgora, Aquilo.
 
+-[Blueprint Shotgun](https://mods.factorio.com/mod/blueprint-shotgun) - great to help with picking up loot from destroyed spawners! also just the best early construction mod in general.
+
 # KNOWN ISSUES
 
 - The code is very badly organized because I was trying to see whether I could implement this at all.
